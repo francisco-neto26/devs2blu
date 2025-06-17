@@ -5,4 +5,6 @@ Trabalhei em supermercado por alguns anos, mas já gostava de tecnologia, então
 Já estudei JAVA, JAVASCRIPT, HTML, CSS. Aprendi PL/PgSQL e PL/SQL sozinho pela necessidade no trabalho.
 Não gosto muito de fazer front, mas entendo sua importância e necessidade nos sistemas.
 
+Tenho como expectativas, solidificar meus conhecimentos para me tornar um desenvolvedor de qualidade
+
 Acredito que um ponto interessante comentar sobre o tomcat, já que comumente é usado com servidor de aplicações WEB em java.
