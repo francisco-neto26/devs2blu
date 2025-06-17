@@ -1,0 +1,8 @@
+Apresentação
+
+Me chamo Francisco Miguel Ludwig Neto, tenho 35 anos, sou natural de Campo Mourão/PR. Sou formado em ciências contábeis e estou no 3º semestre de ADS.
+Trabalhei em supermercado por alguns anos, mas já gostava de tecnologia, então em 2019 consegui minha primeira oportunidade em uma empresa de sistemas, no suporte, onde com muita dedicação consegui uma oportunidade na Philips. Neste novo trabalho tive contato com códigos fontes, onde passei a me interessar ainda mais e hoje gosto demais de programação e ver como as coisas na tecnologia acontecem, a sua evolução.
+Já estudei JAVA, JAVASCRIPT, HTML, CSS. Aprendi PL/PgSQL e PL/SQL sozinho pela necessidade no trabalho.
+Não gosto muito de fazer front, mas entendo sua importância e necessidade nos sistemas.
+
+Acredito que um ponto interessante comentar sobre o tomcat, já que comumente é usado com servidor de aplicações WEB em java.
