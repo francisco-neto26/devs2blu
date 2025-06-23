@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class exercicios {
@@ -200,7 +201,7 @@ public class exercicios {
         System.out.println("Total de numeros pares " + par + "\nTotal de numeros impares " + impar);
     }
 
-    public static void ex15_16(Scanner scan){
+    public static void ex15(Scanner scan){
         System.out.println("Informe o termo que deseja visualziar da sequencia fibonacci");
         int termo = scan.nextInt();
         int fibAnterior = 0;
@@ -232,11 +233,142 @@ public class exercicios {
             }else {
                 System.out.print(", " + primeiro);
             }
-
-
             int proximo = primeiro + segundo;
             primeiro = segundo;
             segundo = proximo;
         }
     }
+
+    public static void ex16(Scanner scan){
+        int fibAnterior = 1, fibAtual = 1, contador = 1;
+
+        while (true){
+            if (contador == 1){
+                System.out.print(fibAtual);
+            }else {
+                System.out.print(", " + fibAtual);
+            }
+
+            if (fibAtual > 500){
+                break;
+            }
+
+            int proximo = fibAtual + fibAnterior;
+            fibAtual = fibAnterior;
+            fibAnterior = proximo;
+
+            contador++;
+
+        }
+
+    }
+
+    public static void ex17(Scanner scan){
+        System.out.println("Informe o numero para calcular o fatorial");
+        long fatorial = scan.nextLong();
+
+        if(fatorial > 0){
+            String messagem = fatorial + "!=" + fatorial;
+            for (long i = (fatorial - 1); i >= 1; i--) {
+                fatorial = fatorial * i;
+                System.out.println("273 " + fatorial);
+                messagem = messagem + "." + i ;
+            }
+            System.out.println(messagem + "=" + fatorial);
+        } else if (fatorial == 0) {
+            System.out.println(fatorial + "!=" + 1);
+        } else{
+            System.out.println("Numero menor que zero não é possivel calcular o fatorial");
+        }
+    }
+
+    public static void ex18(Scanner scan){
+        ArrayList<Integer> numeros = new ArrayList<>();
+        System.out.println("Digite os números (pressione qualquer letra para encerrar):");
+        long maior = 0, menor = 0, soma = 0;
+        while (scan.hasNextInt()) {
+            int numero = scan.nextInt();
+            numeros.add(numero);
+        }
+        for (Integer numero : numeros) {
+            if(maior < numero){
+                maior = numero;
+            }
+        }
+        menor = maior;
+        for (Integer numero : numeros) {
+            if (menor > numero){
+                menor = numero;
+            }
+            soma = numero + soma;
+        }
+
+        System.out.println("O maior numero informado é " + maior);
+        System.out.println("O menor numero informado é " + menor);
+        System.out.println("A soma dos numeros é " + soma);
+    }
+    public static void ex19(Scanner scan){
+        ArrayList<Integer> numeros = new ArrayList<>();
+        System.out.println("Digite os números entre 0 e 1000 (pressione qualquer letra para encerrar):");
+        long maior = 0, menor = 0, soma = 0;
+
+        while (scan.hasNextInt()) {
+            int numero = scan.nextInt();
+            if (numero >= 0 && numero <= 1000) {
+                numeros.add(numero);
+            }else {
+                System.out.println("Número fora do intervalo de 0 a 1000");
+            }
+        }
+        for (Integer numero : numeros) {
+            if(maior < numero){
+                maior = numero;
+            }
+        }
+        menor = maior;
+        for (Integer numero : numeros) {
+            if (menor > numero){
+                menor = numero;
+            }
+            soma = numero + soma;
+        }
+
+        System.out.println("O maior numero informado é " + maior);
+        System.out.println("O menor numero informado é " + menor);
+        System.out.println("A soma dos numeros é " + soma);
+    }
+
+    public static void ex20(Scanner scan){
+
+        while (true) {
+            System.out.println("Informe o numero para calcular o fatorial (maior que 0 menor que 16)");
+            long fatorial = scan.nextLong();
+            if (fatorial > 0 && fatorial < 17) {
+                String messagem = fatorial + "!=" + fatorial;
+                for (long i = (fatorial - 1); i >= 1; i--) {
+                    fatorial = fatorial * i;
+                    System.out.println("273 " + fatorial);
+                    messagem = messagem + "." + i;
+                }
+                System.out.println(messagem + "=" + fatorial);
+            } else if (fatorial == 0 || fatorial > 16) {
+                System.out.println("Numero informado é zero ou maior que 16, esta fora das regras definidas");
+            } else {
+                System.out.println("Numero menor que zero não é possivel calcular o fatorial");
+            }
+            System.out.println("Deseja calcular um novo fatorial? 1-Sim 2-Não");
+            if(scan.nextInt() != 1){
+                break;
+            }
+        }
+    }
+
+    public static void ex21(Scanner scan){
+        System.out.println("Informe o numero para validar se é primo");
+        long primo = scan.nextLong();
+
+        
+    }
+
+
 }
