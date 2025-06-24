@@ -367,7 +367,7 @@ public class exercicios {
         System.out.println("Informe o numero para validar se é primo");
         long primo = scan.nextLong();
 
-        
+
     }
 
 
