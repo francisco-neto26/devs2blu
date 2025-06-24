@@ -6,11 +6,10 @@ public class LojaDeCalcados {
     public static ArrayList<Double> preco = new ArrayList<>();
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        calcado.add("Tenis");
+        /*calcado.add("Tenis");
         preco.add(25.50);
         calcado.add("Sapato");
-        preco.add(35.50);
-        while (true) {
+        preco.add(35.50);*/
             System.out.println("\n1-Cadastrar calçados e preços" +
                     "\n2-Listar calçados cadastrados" +
                     "\n3-Listar calçado mais caro" +
