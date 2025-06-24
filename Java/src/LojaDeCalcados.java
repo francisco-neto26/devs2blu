@@ -194,4 +194,32 @@ public class LojaDeCalcados {
             }
         }
     }
+
+    /*
+    O código implementa um sistema de gerenciamento de calçados com preços em Java, através de um menu interativo no terminal. Ele permite ao usuário cadastrar, visualizar, analisar e modificar produtos em uma loja fictícia.
+
+Funcionalidades disponíveis no menu:
+1.	Cadastrar calçados e preços
+o	Permite adicionar novos produtos (evita duplicados).
+2.	Listar calçados cadastrados
+o	Mostra todos os calçados com seus preços e índice (código).
+3.	Listar calçado mais caro
+o	Encontra e exibe o item com o maior preço da lista.
+4.	Calcular preço médio
+o	Calcula e exibe a média dos preços de todos os calçados.
+5.	Listar produtos acima da média
+o	Mostra os calçados cujo preço está acima da média calculada.
+6.	Valor total de todos os produtos
+o	Soma e exibe o valor total de todos os calçados cadastrados.
+7.	Atualizar ou remover produtos
+o	Atualiza nome ou preço de um calçado específico, ou remove produtos por nome ou por código.
+8.	Sair
+o	Encerra o programa.
+
+Estrutura e lógica principais:
+•	Usa duas ArrayList: uma para armazenar nomes dos calçados (calcado) e outra para seus respectivos preços (preco), mantendo os índices sincronizados.
+•	O método listarProduto(...) é reutilizado com diferentes parâmetros para atender as opções 2 a 6, otimizando a lógica de exibição e cálculo.
+•	As opções de atualização e remoção permitem que o usuário escolha se deseja operar pelo índice (código) ou pelo nome do produto.
+
+     */
 }
