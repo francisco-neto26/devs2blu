@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 - Contador</title>
+    <link rel="stylesheet" href="exercicio1.css">
+</head>
+<body>
+    <div class="container">
+    <a href="../index.html"><button class="btn-voltar">← Voltar ao Menu</button></a> 
+    <h1>Calculadora de Média</h1>
+
+    <label>Nota 1 (0 a 10): <input type="number" id="nota1" step="0.1" min="0" max="10"></label>
+    <label>Nota 2 (0 a 10): <input type="number" id="nota2" step="0.1" min="0" max="10"></label>
+    <label>Nota 3 (0 a 10): <input type="number" id="nota3" step="0.1" min="0" max="10"></label>
+
+    <button onclick="calcularMedia()">Calcular</button>
+
+    <div id="resultado" class="mensagem"></div>
+  </div>
+
+  <script src="exercicio1.js"></script>
+</body>
+</html>

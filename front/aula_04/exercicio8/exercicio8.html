@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercício 8 - Quiz</title>
+  <link rel="stylesheet" href="exercicio8.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html"><button class="btn-voltar">← Voltar ao Menu</button></a>
+
+    <h1>Quiz de Perguntas</h1>
+
+    <div id="quiz">
+      <div id="pergunta" class="pergunta"></div>
+      <div id="alternativas" class="alternativas"></div>
+      <button id="proxima" onclick="proximaPergunta()" disabled>Próxima</button>
+    </div>
+
+    <div id="resultado" class="mensagem"></div>
+    <button id="reiniciar" style="display:none;" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz</button>
+  </div>
+
+  <script src="exercicio8.js"></script>
+</body>
+</html>
