@@ -152,6 +152,7 @@ function reiniciarQuiz() {
   iniciarQuiz();
 }
 
+/*
 document.addEventListener('DOMContentLoaded', function() {
     let botoes = document.querySelectorAll('.container button');
     
@@ -165,5 +166,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
+*/
 iniciarQuiz();
