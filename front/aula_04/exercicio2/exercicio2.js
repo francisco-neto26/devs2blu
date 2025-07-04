@@ -49,3 +49,17 @@ function converter() {
 
   resultadoDiv.textContent = `R$ ${valor.toFixed(2)} equivalem a ${simbolos[tipo]} ${convertido.toFixed(4)} (${nomeMoeda[tipo]})`;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let botoes = document.querySelectorAll('.container button');
+    
+    botoes.forEach(function(botao) {
+        botao.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        botao.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});
