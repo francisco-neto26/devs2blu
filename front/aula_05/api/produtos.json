@@ -1,0 +1,28 @@
+{
+  "produtos": [
+    {
+      "id": "f044",
+      "nome": "TV",
+      "marca": "Samsung",
+      "valor": 4300
+    },
+    {
+      "id": "1154",
+      "nome": "Notebook",
+      "marca": "Dell",
+      "valor": 6800
+    },
+    {
+      "id": "6ede",
+      "nome": "Monitor Gamer",
+      "marca": "AOC",
+      "valor": 2400
+    },
+    {
+      "id": "ffbd",
+      "nome": "Monitor Gamer",
+      "marca": "Dell",
+      "valor": 2400
+    }
+  ]
+}

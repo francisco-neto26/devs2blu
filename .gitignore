@@ -1,0 +1,87 @@
+# =========================
+# Arquivos de sistema
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Configurações de IDEs
+# =========================
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# Arquivos temporários
+# =========================
+*.log
+*.tmp
+*.swp
+
+# =========================
+# Java
+# =========================
+
+# Compilados Java
+*.class
+
+# Pastas de build
+/bin/
+/build/
+/target/
+
+# Arquivos do Maven e Gradle
+*.war
+*.ear
+*.jar
+
+# Arquivos do Gradle
+.gradle/
+build/
+out/
+
+# Arquivos do Eclipse
+*.classpath
+*.project
+*.settings/
+
+# Arquivos do NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# =========================
+# Node.js
+# =========================
+
+# node_modules (bibliotecas instaladas)
+node_modules/
+
+# Arquivos de build/transpilers
+dist/
+build/
+
+# Log de execução
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test coverage
+coverage/
+
+# Arquivos do ESLint e prettier (caso queira ignorar localmente)
+.eslintcache
+.prettiercache
+
+# Ambiente
+.env
+.env.local
+.env.*.local
