@@ -1,10 +1,10 @@
 {
   "produtos": [
     {
-      "id": "f044",
       "nome": "TV",
       "marca": "Samsung",
-      "valor": 4300
+      "valor": 4305,
+      "id": "f044"
     },
     {
       "id": "1154",
@@ -23,6 +23,24 @@
       "nome": "Monitor Gamer",
       "marca": "Dell",
       "valor": 2400
+    },
+    {
+      "id": "71ab",
+      "nome": "IPhone16",
+      "marca": "Apple",
+      "valor": 4000
+    },
+    {
+      "id": "d25a",
+      "nome": "Notebook",
+      "marca": "Samsung",
+      "valor": 8000
+    },
+    {
+      "nome": "IPhone16 pro max",
+      "marca": "Apple",
+      "valor": 10500,
+      "id": "ed9a"
     }
   ]
 }
