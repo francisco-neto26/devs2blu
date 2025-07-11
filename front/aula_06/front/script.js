@@ -8,7 +8,8 @@ let verificaCampos = () => {
         'nome': nome.value,
         'cep': cep.value,
     }
-
+    let btnCadastrar = document.getElementById('btnCadastrar');
+    btnCadastrar.style.display = 'none';
     let btnBuscar = document.getElementById('btnBuscar');
     if (obj.nome === '' || obj.cep === '') {
         btnBuscar.style.display = 'none';
