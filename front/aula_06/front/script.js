@@ -1,6 +1,20 @@
+const urlBack = 'http://localhost:3000/pessoas';
+const urlViaCep = 'https://viacep.com.br/ws/recebe_cep/json';
 let pessoas = [];
+let buscarAltera = 1;
+const colunas = {};
+const nomesColunas = [
+    'colunaId',
+    'colunaNome',
+    'colunaCEP',
+    'colunaEstado',
+    'colunaCidade',
+    'colunaBairro',
+    'colunaLogradouro',
+    'colunaSelecionar'
+];
 
-let verificaCampos = () => {
+let verificaCampos = (buscar) => {
     //obtem os inputs
     let nome = document.getElementById('nome');
     let cep = document.getElementById('cep');
@@ -8,8 +22,8 @@ let verificaCampos = () => {
         'nome': nome.value,
         'cep': cep.value,
     }
-    let btnCadastrar = document.getElementById('btnCadastrar');
-    btnCadastrar.style.display = 'none';
+    ativarbtncadastrar(buscar)
+
     let btnBuscar = document.getElementById('btnBuscar');
     if (obj.nome === '' || obj.cep === '') {
         btnBuscar.style.display = 'none';
@@ -20,8 +34,8 @@ let verificaCampos = () => {
 
 //função para buscar dados do cep
 const buscar = () => {
-    let cep = document.getElementById('cep');
-    fetch(`https://viacep.com.br/ws/${cep.value}/json`)
+    let cep = document.getElementById('cep').value;
+    fetch(urlViaCep.replace('recebe_cep', cep))
         .then(retorno => retorno.json())
         .then(dadosRet => {
             document.getElementById('estado').value = (dadosRet.estado);
@@ -32,237 +46,181 @@ const buscar = () => {
 
     let btnBuscar = document.getElementById('btnBuscar');
     btnBuscar.style.display = 'none';
-    let btnCadastrar = document.getElementById('btnCadastrar');
-    btnCadastrar.style.display = 'inline-block';
+
+    ativarbtncadastrar(buscarAltera);
+
 }
 
-
-nome.addEventListener('input', verificaCampos);
-cep.addEventListener('input', verificaCampos);
-
-verificaCampos();
-
-/*
-
-- Id (gerado automaticamente)
-- Nome
-- CEP
-- Estado
-- Cidade
-- Bairro
-- Logradouro
-
-
-
-fetch('http://localhost:3000/pessoas')
+fetch(urlBack)
     .then(retorno => retorno.json())
     .then(p => {
-        produtos = p
-        renderizarTabela()
+        pessoas = p
+        criarTabela()
     });
 //função para criar tabela
-let renderizarTabela = () => {
+let criarTabela = () => {
     let tabela = document.getElementById('tabela');
 
-    // limpar tabela
     tabela.innerHTML = '';
 
-    for (let indice = 0; indice < produtos.length; indice++) {
-        //cria linha na tabela
-        let linha = tabela.insertRow(-1);
-        //cria colunas da tabela
-        let colunaId = linha.insertCell(0);
-        let colunaNome = linha.insertCell(1);
-        let colunaMarca = linha.insertCell(2);
-        let colunaValor = linha.insertCell(3);
-        let colunaSelecionar = linha.insertCell(4);
-        //insere os valores nas colunas da tabela
-        colunaId.innerText = produtos[indice].id;
-        colunaNome.innerText = produtos[indice].nome;
-        colunaMarca.innerText = produtos[indice].marca;
-        colunaValor.innerText = produtos[indice].valor;
-        colunaSelecionar.innerHTML = `<button value="Selecionar" onclick = 'selecionar(${indice})' class = 'btn btn-primary'>Selecionar</button>`;
+    for (let indice = 0; indice < pessoas.length; indice++) {
 
+        let linha = tabela.insertRow(-1);        
+
+        for (let i = 0; i < nomesColunas.length; i++) {
+            colunas[nomesColunas[i]] = linha.insertCell(i);
+        }
+        preencherLinhaTabela(colunas, pessoas[indice], indice);  
     }
 }
 
-//função para cadastrar produtos
+//função para cadastrar
 const cadastrar = () => {
+    let obj = getDadosFormulario();
 
-    //obtem os inputs
-    let nome = document.getElementById('nome');
-    let marca = document.getElementById('marca');
-    let valor = document.getElementById('valor');
-
-    // gerar objeto produto
-
-    let obj = {
-        'nome': nome.value,
-        'marca': marca.value,
-        'valor': parseFloat(valor.value)
-    }
-
-    fetch('http://localhost:3000/produtos', {
+    fetch(urlBack, {
         method: 'POST',
         body: JSON.stringify(obj),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
         .then(p => {
-            // atualizar vetor
-            produtos.push(p);
 
-            //Gerar o indice do produto no vetor
-            let indice = produtos.length - 1;
-
-            let tabela = document.getElementById('tabela');
-            //cria linha na tabela
+            pessoas.push(p);
+            let indice = pessoas.length - 1;
             let linha = tabela.insertRow(-1);
-            //cria colunas da tabela
-            let colunaId = linha.insertCell(0);
-            let colunaNome = linha.insertCell(1);
-            let colunaMarca = linha.insertCell(2);
-            let colunaValor = linha.insertCell(3);
-            let colunaSelecionar = linha.insertCell(4);
-            //insere os valores nas colunas da tabela
-            colunaId.innerText = p.id;
-            colunaNome.innerText = p.nome;
-            colunaMarca.innerText = p.marca;
-            colunaValor.innerText = p.valor;
-            colunaSelecionar.innerHTML = `<button value="Selecionar" onclick = 'selecionar(${indice})' class = 'btn btn-primary'>Selecionar</button>`;
 
-            //limpar inputs
-            nome.value = '';
-            marca.value = '';
-            valor.value = '';
-
-            //focus
+            for (let i = 0; i < nomesColunas.length; i++) {
+                colunas[nomesColunas[i]] = linha.insertCell(i);
+            }
+            preencherLinhaTabela(colunas, pessoas[indice], indice);            
+            limpaCampos();
+            verificaCampos(0);
             nome.focus();
-        })
+        });
 }
 
-// função para selecionar um produto
+// função para selecionar
 const selecionar = (indice) => {
-    // selecionar todos os elementos de formulario
-    let id = document.getElementById('id');
-    let nome = document.getElementById('nome');
-    let marca = document.getElementById('marca');
-    let valor = document.getElementById('valor');
-    let btnCadastrar = document.getElementById('btnCadastrar');
-    let btnAlterar = document.getElementById('btnAlterar');
-    let btnRemover = document.getElementById('btnRemover');
-    let btnCancelar = document.getElementById('btnCancelar');
+    
+    let obj = pessoas[indice];
+    document.getElementById('id').value = obj.id;
+    document.getElementById('nome').value = obj.nome;
+    document.getElementById('cep').value = obj.cep;
+    document.getElementById('estado').value = obj.estado;
+    document.getElementById('cidade').value = obj.cidade;
+    document.getElementById('bairro').value = obj.bairro;
+    document.getElementById('logradouro').value = obj.logradouro;
+    buscarAltera = 0;
+    verificaCampos(0);
+    btnAjuste(1);
+};
 
-    //obter objeto de produto
-    let obj = produtos[indice]
-
-    //preencher inputs
-    id.value = obj.id;
-    nome.value = obj.nome;
-    marca.value = obj.marca;
-    valor.value = obj.valor
-
-    // visibilidade de botoes
-    btnCadastrar.style.display = 'none';
-    btnAlterar.style.display = 'inline-block';
-    btnRemover.style.display = 'inline-block';
-    btnCancelar.style.display = 'inline-block';
-
-}
 // função para cancelar
 const cancelar = () => {
-    // selecionar todos os elementos de formulario
-    let id = document.getElementById('id');
-    let nome = document.getElementById('nome');
-    let marca = document.getElementById('marca');
-    let valor = document.getElementById('valor');
-    let btnCadastrar = document.getElementById('btnCadastrar');
-    let btnAlterar = document.getElementById('btnAlterar');
-    let btnRemover = document.getElementById('btnRemover');
-    let btnCancelar = document.getElementById('btnCancelar');
-
-    //preencher inputs
-    id.value = '';
-    nome.value = '';
-    marca.value = '';
-    valor.value = '';
-
-    // visibilidade de botoes
-    btnCadastrar.style.display = 'inline-block';
-    btnAlterar.style.display = 'none';
-    btnRemover.style.display = 'none';
-    btnCancelar.style.display = 'none';
+    
+    limpaCampos();
+    verificaCampos(0);
+    btnAjuste(0);
 
 }
 
-//função para alterar produtos
+//função para alterar
 const alterar = () => {
+    let obj = getDadosFormulario();
 
-    //obtem os inputs
-    let nome = document.getElementById('nome');
-    let marca = document.getElementById('marca');
-    let valor = document.getElementById('valor');
-    let id = document.getElementById('id');
-
-    // gerar objeto produto
-
-    let obj = {
-        'nome': nome.value,
-        'marca': marca.value,
-        'valor': parseFloat(valor.value)
-    }
-
-    fetch(`http://localhost:3000/produtos/${id.value}`, {
+    fetch(`${urlBack}/${id.value}`, {
         method: 'PUT',
         body: JSON.stringify(obj),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
         .then(p => {
-            // localizar o produto no vetor
-            let indice = produtos.findIndex(produto => produto.id == p.id);
-
-            //alterar objeto no vetor
-            produtos[indice] = p;
-
-            renderizarTabela();
-
-            //limpar inputs
-            nome.value = '';
-            marca.value = '';
-            valor.value = '';
-            id.value = '';
-
-            //focus
+            let indice = pessoas.findIndex(pessoa => pessoa.id == p.id);
+            pessoas[indice] = p;
+            criarTabela();
+            limpaCampos();
+            buscarAltera = 1;
+            verificaCampos(0);
+            btnAjuste(0);
             nome.focus();
-        })
-}
+        });
+};
 
-//função para remover produtos
+//função para remover
 const remover = () => {
 
-    //obtem os inputs
     let id = document.getElementById('id');
 
-    fetch(`http://localhost:3000/produtos/${id.value}`, {
+    fetch(`${urlBack}/${id.value}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
         .then(p => {
-            // localizar o produto no vetor
-            let indice = produtos.findIndex(produto => produto.id == p.id);
-
-            //remover objeto no vetor
-            produtos.splice(indice, 1);
-
-            renderizarTabela();
-
-            //limpar inputs
-            nome.value = '';
-            marca.value = '';
-            valor.value = '';
-            id.value = '';
-
-            //focus
+            let indice = pessoas.findIndex(pessoa => pessoa.id == p.id);
+            pessoas.splice(indice, 1);
+            criarTabela();
+            limpaCampos();
+            verificaCampos(0);
+            btnAjuste(0);
             nome.focus();
-        })
+        });
+};
+
+const btnAjuste = (ativa) => {
+    let btnAlterar = document.getElementById('btnAlterar');
+    let btnRemover = document.getElementById('btnRemover');
+    let btnCancelar = document.getElementById('btnCancelar');
+    if (ativa === 1) {
+        btnAlterar.style.display = 'inline-block';
+        btnRemover.style.display = 'inline-block';
+        btnCancelar.style.display = 'inline-block';
+    } else {
+        btnAlterar.style.display = 'none';
+        btnRemover.style.display = 'none';
+        btnCancelar.style.display = 'none';
+    }
 }
-*/
+
+const ativarbtncadastrar = (ativa) => {
+    let btnCadastrar = document.getElementById('btnCadastrar');
+    if (ativa === 1) {
+        btnCadastrar.style.display = 'inline-block';
+    } else {
+        btnCadastrar.style.display = 'none';
+    }
+}
+
+const limpaCampos = () => {
+    nome.value = '';
+    cep.value = '';
+    estado.value = '';
+    cidade.value = '';
+    bairro.value = '';
+    logradouro.value = '';
+}
+
+function getDadosFormulario() {
+  const campos = ['nome', 'cep', 'estado', 'cidade', 'bairro', 'logradouro'];
+  const obj = {};
+
+  campos.forEach(campo => {
+    obj[campo] = document.getElementById(campo).value;
+  });
+
+  return obj;
+}
+
+function preencherLinhaTabela(colunas, pessoa, indice) {
+  colunas.colunaId.innerText = pessoa.id;
+  colunas.colunaNome.innerText = pessoa.nome;
+  colunas.colunaCEP.innerText = pessoa.cep;
+  colunas.colunaEstado.innerText = pessoa.estado;
+  colunas.colunaCidade.innerText = pessoa.cidade;
+  colunas.colunaBairro.innerText = pessoa.bairro;
+  colunas.colunaLogradouro.innerText = pessoa.logradouro;
+  colunas.colunaSelecionar.innerHTML = `<button value="Selecionar" onclick="selecionar(${indice})" class="btn btn-primary">Selecionar</button>`;
+}
+
+nome.addEventListener('input', verificaCampos);
+cep.addEventListener('input', verificaCampos);
+
+verificaCampos(0);
