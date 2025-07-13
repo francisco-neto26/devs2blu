@@ -2,6 +2,8 @@ const urlBack = 'http://localhost:3000/pessoas';
 const urlViaCep = 'https://viacep.com.br/ws/recebe_cep/json';
 let pessoas = [];
 let buscarAltera = 1;
+let ativaBtnAlterar = 0;
+let obj_old = null;
 const colunas = {};
 const nomesColunas = [
     'colunaId',
@@ -30,10 +32,11 @@ let verificaCampos = (buscar) => {
     } else if (obj.nome != '' || obj.cep != '') {
         btnBuscar.style.display = 'inline-block';
     }
+    
 }
-
 //função para buscar dados do cep
-const buscar = () => {
+const buscar = (obj_old) => {
+    ativarBtnAlterar(ativaBtnAlterar);
     let cep = document.getElementById('cep').value;
     fetch(urlViaCep.replace('recebe_cep', cep))
         .then(retorno => retorno.json())
@@ -43,12 +46,18 @@ const buscar = () => {
             document.getElementById('bairro').value = (dadosRet.bairro);
             document.getElementById('logradouro').value = (dadosRet.logradouro);
         });
+    let obj = getDadosFormulario();
 
+    let iguais = camparainpOldNew(obj_old, obj)
+
+    if (iguais) {
+        ativarBtnAlterar(0);
+    } else {
+        ativarBtnAlterar(1);
+    }
     let btnBuscar = document.getElementById('btnBuscar');
     btnBuscar.style.display = 'none';
-
     ativarbtncadastrar(buscarAltera);
-
 }
 
 fetch(urlBack)
@@ -65,12 +74,12 @@ let criarTabela = () => {
 
     for (let indice = 0; indice < pessoas.length; indice++) {
 
-        let linha = tabela.insertRow(-1);        
+        let linha = tabela.insertRow(-1);
 
         for (let i = 0; i < nomesColunas.length; i++) {
             colunas[nomesColunas[i]] = linha.insertCell(i);
         }
-        preencherLinhaTabela(colunas, pessoas[indice], indice);  
+        preencherLinhaTabela(colunas, pessoas[indice], indice);
     }
 }
 
@@ -92,7 +101,7 @@ const cadastrar = () => {
             for (let i = 0; i < nomesColunas.length; i++) {
                 colunas[nomesColunas[i]] = linha.insertCell(i);
             }
-            preencherLinhaTabela(colunas, pessoas[indice], indice);            
+            preencherLinhaTabela(colunas, pessoas[indice], indice);
             limpaCampos();
             verificaCampos(0);
             nome.focus();
@@ -101,7 +110,7 @@ const cadastrar = () => {
 
 // função para selecionar
 const selecionar = (indice) => {
-    
+
     let obj = pessoas[indice];
     document.getElementById('id').value = obj.id;
     document.getElementById('nome').value = obj.nome;
@@ -111,13 +120,15 @@ const selecionar = (indice) => {
     document.getElementById('bairro').value = obj.bairro;
     document.getElementById('logradouro').value = obj.logradouro;
     buscarAltera = 0;
+    ativaBtnAlterar = 1;
     verificaCampos(0);
     btnAjuste(1);
+    obj_old = getDadosFormulario();
 };
 
 // função para cancelar
 const cancelar = () => {
-    
+
     limpaCampos();
     verificaCampos(0);
     btnAjuste(0);
@@ -143,6 +154,7 @@ const alterar = () => {
             btnAjuste(0);
             nome.focus();
         });
+    ativarBtnAlterar(0);
 };
 
 //função para remover
@@ -166,15 +178,12 @@ const remover = () => {
 };
 
 const btnAjuste = (ativa) => {
-    let btnAlterar = document.getElementById('btnAlterar');
     let btnRemover = document.getElementById('btnRemover');
     let btnCancelar = document.getElementById('btnCancelar');
     if (ativa === 1) {
-        btnAlterar.style.display = 'inline-block';
         btnRemover.style.display = 'inline-block';
         btnCancelar.style.display = 'inline-block';
     } else {
-        btnAlterar.style.display = 'none';
         btnRemover.style.display = 'none';
         btnCancelar.style.display = 'none';
     }
@@ -188,6 +197,14 @@ const ativarbtncadastrar = (ativa) => {
         btnCadastrar.style.display = 'none';
     }
 }
+const ativarBtnAlterar = (ativa) => {
+    let btnAlterar = document.getElementById('btnAlterar');
+    if (ativa === 1) {
+        btnAlterar.style.display = 'inline-block';
+    } else {
+        btnAlterar.style.display = 'none';
+    }
+}
 
 const limpaCampos = () => {
     nome.value = '';
@@ -199,25 +216,37 @@ const limpaCampos = () => {
 }
 
 function getDadosFormulario() {
-  const campos = ['nome', 'cep', 'estado', 'cidade', 'bairro', 'logradouro'];
-  const obj = {};
+    const campos = ['nome', 'cep', 'estado', 'cidade', 'bairro', 'logradouro'];
+    const obj = {};
 
-  campos.forEach(campo => {
-    obj[campo] = document.getElementById(campo).value;
-  });
+    campos.forEach(campo => {
+        obj[campo] = document.getElementById(campo).value;
+    });
 
-  return obj;
+    return obj;
 }
 
 function preencherLinhaTabela(colunas, pessoa, indice) {
-  colunas.colunaId.innerText = pessoa.id;
-  colunas.colunaNome.innerText = pessoa.nome;
-  colunas.colunaCEP.innerText = pessoa.cep;
-  colunas.colunaEstado.innerText = pessoa.estado;
-  colunas.colunaCidade.innerText = pessoa.cidade;
-  colunas.colunaBairro.innerText = pessoa.bairro;
-  colunas.colunaLogradouro.innerText = pessoa.logradouro;
-  colunas.colunaSelecionar.innerHTML = `<button value="Selecionar" onclick="selecionar(${indice})" class="btn btn-primary">Selecionar</button>`;
+    colunas.colunaId.innerText = pessoa.id;
+    colunas.colunaNome.innerText = pessoa.nome;
+    colunas.colunaCEP.innerText = pessoa.cep;
+    colunas.colunaEstado.innerText = pessoa.estado;
+    colunas.colunaCidade.innerText = pessoa.cidade;
+    colunas.colunaBairro.innerText = pessoa.bairro;
+    colunas.colunaLogradouro.innerText = pessoa.logradouro;
+    colunas.colunaSelecionar.innerHTML = `<button value="Selecionar" onclick="selecionar(${indice})" class="btn btn-primary">Selecionar</button>`;
+}
+
+function camparainpOldNew(obj1, obj2) {
+    if (obj1 === null){
+        obj1 = getDadosFormulario();
+    }
+    for (let chave of Object.keys(obj1)) {
+        if (obj1[chave] !== obj2[chave]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 nome.addEventListener('input', verificaCampos);

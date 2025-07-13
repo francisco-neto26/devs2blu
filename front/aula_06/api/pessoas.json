@@ -7,16 +7,7 @@
       "cidade": "Blumenau",
       "bairro": "Bom Retiro",
       "logradouro": "Rua Alexander Flemming",
-      "id": "97e5"
-    },
-    {
-      "id": "5d63",
-      "nome": "Francisco Miguel Ludwig Neto",
-      "cep": "89010-670",
-      "estado": "Santa Catarina",
-      "cidade": "Blumenau",
-      "bairro": "Bom Retiro",
-      "logradouro": "Rua Alexander Flemming"
+      "id": "5d63"
     },
     {
       "id": "6467",
@@ -119,6 +110,15 @@
     },
     {
       "id": "4b33",
+      "nome": "Francisco Miguel Ludwig Neto",
+      "cep": "89010-670",
+      "estado": "Santa Catarina",
+      "cidade": "Blumenau",
+      "bairro": "Bom Retiro",
+      "logradouro": "Rua Alexander Flemming"
+    },
+    {
+      "id": "2651",
       "nome": "Francisco Miguel Ludwig Neto",
       "cep": "89010-670",
       "estado": "Santa Catarina",
