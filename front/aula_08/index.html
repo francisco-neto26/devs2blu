@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição Api</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1>Pessoas</h1>
+        <form>
+            <input type="text" class="form-control" placeholder="id" id="id" readonly="readonly">
+            <!--
+            <div class="row align-items-center mb-3">
+                <div class="col-2 text-start">
+                    <label for="id" class="form-label mb-3">ID:</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="id" placeholder="ID" readonly="readonly">
+                </div>
+            </div>
+            -->
+
+            <div class="row align-items-center mb-3">
+                <div class="col-2 text-start">
+                    <label for="nome" class="form-label mb-3">Nome:</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="nome" placeholder="Nome">
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-3">
+                <div class="col-2 text-start">
+                    <label for="idade" class="form-label mb-3">Idade:</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="idade" placeholder="Idade">
+                </div>
+            </div>
+
+            <input type="button" value="Cadastrar" onclick="cadastrar()" class="btn btn-primary" id="btnCadastrar">
+            <input type="button" value="Alterar" onclick="alterar()" class="btn btn-primary" id="btnAlterar">
+            <input type="button" value="Remover" onclick="remover()" class="btn btn-primary" id="btnRemover">
+            <input type="button" value="Cancelar" onclick="cancelar()" class="btn btn-primary" id="btnCancelar">
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Selecionar</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+
+    </div>
+
+
+    <!--
+    <script>
+        fetch('http://localhost:3000/pessoa')
+            .then(requisicao => requisicao.json())
+            .then(vetor => console.table(vetor))
+    </script>-->
+    <script src="script.js"></script>
+</body>
+
+</html>
