@@ -1,13 +1,13 @@
-package aula21_07.exercicios.exec02;
+package aula21_07.exercicios.exec02.models;
 
 import java.util.Random;
 
-public class pneus {
+public class Pneus {
     private int id;
     private String marca;
     private int aro;
 
-    public pneus(String marca, int aro) {
+    public Pneus(String marca, int aro) {
         this.id = new Random().nextInt(1000);
         this.marca = marca;
         this.aro = aro;

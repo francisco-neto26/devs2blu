@@ -1,4 +1,4 @@
-package aula21_07.exercicios.exec01;
+package aula21_07.exercicios.exec01.models;
 
 import java.util.Random;
 

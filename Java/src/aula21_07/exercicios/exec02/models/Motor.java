@@ -1,4 +1,6 @@
-package aula21_07.exercicios.exec02;
+package aula21_07.exercicios.exec02.models;
+
+import java.util.Random;
 
 public class Motor {
     private int id;
@@ -6,6 +8,7 @@ public class Motor {
     private String tipoCombustivel;
 
     public Motor(int potencia, String tipoCombustivel) {
+        this.id = new Random().nextInt(1000);
         this.potencia = potencia;
         this.tipoCombustivel = tipoCombustivel;
     }

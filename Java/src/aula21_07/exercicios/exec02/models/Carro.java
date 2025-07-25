@@ -1,11 +1,12 @@
-package aula21_07.exercicios.exec02;
+package aula21_07.exercicios.exec02.models;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Carro {
     private int id;
     private Motor motor;
-    private ArrayList<pneus> pneus;
+    private ArrayList<Pneus> pneus;
     private String modelo;
     private String marca;
     private String cor;
@@ -13,7 +14,8 @@ public class Carro {
     public Carro() {
     }
 
-    public Carro(Motor motor, ArrayList<pneus> pneus, String modelo, String marca, String cor) {
+    public Carro(Motor motor, ArrayList<Pneus> pneus, String modelo, String marca, String cor) {
+        this.id = new Random().nextInt(1000);
         this.motor = motor;
         this.pneus = pneus;
         this.modelo = modelo;
@@ -29,11 +31,11 @@ public class Carro {
         this.motor = motor;
     }
 
-    public ArrayList<pneus> getPneus() {
+    public ArrayList<Pneus> getPneus() {
         return pneus;
     }
 
-    public void setPneus(ArrayList<pneus> pneus) {
+    public void setPneus(ArrayList<Pneus> pneus) {
         this.pneus = pneus;
     }
 
