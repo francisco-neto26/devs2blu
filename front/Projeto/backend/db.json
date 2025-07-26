@@ -1,0 +1,692 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "iPhone 14 Pro",
+      "imagem": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300",
+      "quantidade": 14,
+      "categoria": "eletrônicos",
+      "valor": 6999.99
+    },
+    {
+      "id": 2,
+      "nome": "Samsung Galaxy S23",
+      "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300",
+      "quantidade": 10,
+      "categoria": "eletrônicos",
+      "valor": 4999.99
+    },
+    {
+      "id": 3,
+      "nome": "MacBook Pro M2",
+      "imagem": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300",
+      "quantidade": 7,
+      "categoria": "eletrônicos",
+      "valor": 12999.99
+    },
+    {
+      "id": 4,
+      "nome": "Dell XPS 13",
+      "imagem": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300",
+      "quantidade": 10,
+      "categoria": "eletrônicos",
+      "valor": 8999.99
+    },
+    {
+      "id": 5,
+      "nome": "iPad Air",
+      "imagem": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300",
+      "quantidade": 20,
+      "categoria": "eletrônicos",
+      "valor": 3999.99
+    },
+    {
+      "id": 6,
+      "nome": "AirPods Pro",
+      "imagem": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=300",
+      "quantidade": 25,
+      "categoria": "eletrônicos",
+      "valor": 1299.99
+    },
+    {
+      "id": 7,
+      "nome": "Sony WH-1000XM4",
+      "imagem": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300",
+      "quantidade": 18,
+      "categoria": "eletrônicos",
+      "valor": 1899.99
+    },
+    {
+      "id": 8,
+      "nome": "Apple Watch Series 8",
+      "imagem": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=300",
+      "quantidade": 14,
+      "categoria": "eletrônicos",
+      "valor": 2499.99
+    },
+    {
+      "id": 9,
+      "nome": "Nintendo Switch",
+      "imagem": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=300",
+      "quantidade": 22,
+      "categoria": "eletrônicos",
+      "valor": 1999.99
+    },
+    {
+      "id": 10,
+      "nome": "PlayStation 5",
+      "imagem": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=300",
+      "quantidade": 5,
+      "categoria": "eletrônicos",
+      "valor": 4999.99
+    },
+    {
+      "id": 11,
+      "nome": "Camiseta Básica Branca",
+      "imagem": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300",
+      "quantidade": 50,
+      "categoria": "roupas",
+      "valor": 49.99
+    },
+    {
+      "id": 12,
+      "nome": "Jeans Skinny",
+      "imagem": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=300",
+      "quantidade": 30,
+      "categoria": "roupas",
+      "valor": 199.99
+    },
+    {
+      "id": 13,
+      "nome": "Vestido Vermelho",
+      "imagem": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300",
+      "quantidade": 25,
+      "categoria": "roupas",
+      "valor": 159.99
+    },
+    {
+      "id": 14,
+      "nome": "Jaqueta de Couro",
+      "imagem": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300",
+      "quantidade": 12,
+      "categoria": "roupas",
+      "valor": 399.99
+    },
+    {
+      "id": 15,
+      "nome": "Tênis Nike Air",
+      "imagem": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300",
+      "quantidade": 35,
+      "categoria": "roupas",
+      "valor": 299.99
+    },
+    {
+      "id": 16,
+      "nome": "Camisa Social",
+      "imagem": "https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=300",
+      "quantidade": 28,
+      "categoria": "roupas",
+      "valor": 129.99
+    },
+    {
+      "id": 17,
+      "nome": "Shorts Jeans",
+      "imagem": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=300",
+      "quantidade": 40,
+      "categoria": "roupas",
+      "valor": 89.99
+    },
+    {
+      "id": 18,
+      "nome": "Blusa de Tricô",
+      "imagem": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300",
+      "quantidade": 22,
+      "categoria": "roupas",
+      "valor": 179.99
+    },
+    {
+      "id": 19,
+      "nome": "Calça Legging",
+      "imagem": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300",
+      "quantidade": 45,
+      "categoria": "roupas",
+      "valor": 79.99
+    },
+    {
+      "id": 20,
+      "nome": "Sandália Feminina",
+      "imagem": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300",
+      "quantidade": 33,
+      "categoria": "roupas",
+      "valor": 149.99
+    },
+    {
+      "id": 21,
+      "nome": "Poltrona Amarela",
+      "imagem": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300",
+      "quantidade": 8,
+      "categoria": "casa",
+      "valor": 1999.99
+    },
+    {
+      "id": 22,
+      "nome": "Cadeira para mesa de jantar",
+      "imagem": "https://images.unsplash.com/photo-1549497538-303791108f95?w=300",
+      "quantidade": 6,
+      "categoria": "casa",
+      "valor": 1299.99
+    },
+    {
+      "id": 23,
+      "nome": "Cadeira de Escritório",
+      "imagem": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=300",
+      "quantidade": 15,
+      "categoria": "casa",
+      "valor": 599.99
+    },
+    {
+      "id": 24,
+      "nome": "Luminária de Mesa",
+      "imagem": "https://plus.unsplash.com/premium_photo-1672166939372-5b16118eee45?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=300",
+      "quantidade": 20,
+      "categoria": "casa",
+      "valor": 199.99
+    },
+    {
+      "id": 25,
+      "nome": "Espelho Decorativo",
+      "imagem": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=300",
+      "quantidade": 12,
+      "categoria": "casa",
+      "valor": 299.99
+    },
+    {
+      "id": 27,
+      "nome": "Conjunto de Panelas",
+      "imagem": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300",
+      "quantidade": 18,
+      "categoria": "casa",
+      "valor": 399.99
+    },
+    {
+      "id": 29,
+      "nome": "Sofá 3 lugares",
+      "imagem": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=300",
+      "quantidade": 25,
+      "categoria": "casa",
+      "valor": 179.99
+    },
+    {
+      "id": 30,
+      "nome": "Vaso Decorativo",
+      "imagem": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=300",
+      "quantidade": 30,
+      "categoria": "casa",
+      "valor": 89.99
+    },
+    {
+      "id": 35,
+      "nome": "Analgésicos",
+      "imagem": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+      "quantidade": 32,
+      "categoria": "saúde",
+      "valor": 89.99
+    },
+    {
+      "id": 36,
+      "nome": "Kit limpeza",
+      "imagem": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
+      "quantidade": 28,
+      "categoria": "casa",
+      "valor": 149.99
+    },
+    {
+      "id": 37,
+      "nome": "Monitor de Pressão",
+      "imagem": "https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?w=300",
+      "quantidade": 15,
+      "categoria": "saúde",
+      "valor": 199.99
+    },
+    {
+      "id": 39,
+      "nome": "Colágeno Hidrolisado",
+      "imagem": "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=300",
+      "quantidade": 22,
+      "categoria": "saúde",
+      "valor": 79.99
+    },
+    {
+      "id": 40,
+      "nome": "Teste de Covid",
+      "imagem": "https://images.unsplash.com/photo-1584118624012-df056829fbd0?w=300",
+      "quantidade": 100,
+      "categoria": "saúde",
+      "valor": 4.99
+    },
+    {
+      "id": 42,
+      "nome": "Tênis de Corrida",
+      "imagem": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300",
+      "quantidade": 35,
+      "categoria": "esportes",
+      "valor": 399.99
+    },
+    {
+      "id": 43,
+      "nome": "Halteres 10kg",
+      "imagem": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300",
+      "quantidade": 20,
+      "categoria": "esportes",
+      "valor": 159.99
+    },
+    {
+      "id": 44,
+      "nome": "Bola de Futebol",
+      "imagem": "https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=300",
+      "quantidade": 45,
+      "categoria": "esportes",
+      "valor": 89.99
+    },
+    {
+      "id": 45,
+      "nome": "Roupa para Esqui",
+      "imagem": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300",
+      "quantidade": 12,
+      "categoria": "esportes",
+      "valor": 299.99
+    },
+    {
+      "id": 46,
+      "nome": "Guarda-sol externo",
+      "imagem": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=300",
+      "quantidade": 5,
+      "categoria": "casa",
+      "valor": 2999.99
+    },
+    {
+      "id": 47,
+      "nome": "Kit Yoga",
+      "imagem": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300",
+      "quantidade": 28,
+      "categoria": "esportes",
+      "valor": 149.99
+    },
+    {
+      "id": 49,
+      "nome": "Prancha de Surf",
+      "imagem": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=300",
+      "quantidade": 6,
+      "categoria": "esportes",
+      "valor": 899.99
+    },
+    {
+      "id": 51,
+      "nome": "Livro Dom Casmurro",
+      "imagem": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300",
+      "quantidade": 50,
+      "categoria": "livros",
+      "valor": 29.99
+    },
+    {
+      "id": 52,
+      "nome": "Harry Potter Coleção",
+      "imagem": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=300",
+      "quantidade": 20,
+      "categoria": "livros",
+      "valor": 199.99
+    },
+    {
+      "id": 53,
+      "nome": "1984 - George Orwell",
+      "imagem": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300",
+      "quantidade": 35,
+      "categoria": "livros",
+      "valor": 39.99
+    },
+    {
+      "id": 56,
+      "nome": "Sapiens",
+      "imagem": "https://images.unsplash.com/photo-1568667256549-094345857637?w=300",
+      "quantidade": 30,
+      "categoria": "livros",
+      "valor": 49.99
+    },
+    {
+      "id": 57,
+      "nome": "A Sutil Arte",
+      "imagem": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300",
+      "quantidade": 45,
+      "categoria": "livros",
+      "valor": 34.99
+    },
+    {
+      "id": 58,
+      "nome": "O Hobbit",
+      "imagem": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300",
+      "quantidade": 28,
+      "categoria": "livros",
+      "valor": 42.99
+    },
+    {
+      "id": 60,
+      "nome": "Clean Architecture",
+      "imagem": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300",
+      "quantidade": 18,
+      "categoria": "livros",
+      "valor": 79.99
+    },
+    {
+      "id": 62,
+      "nome": "Brinquedo para Gatos",
+      "imagem": "https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=300",
+      "quantidade": 50,
+      "categoria": "pets",
+      "valor": 24.99
+    },
+    {
+      "id": 64,
+      "nome": "Coleira Antipulgas",
+      "imagem": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=300",
+      "quantidade": 40,
+      "categoria": "pets",
+      "valor": 45.99
+    },
+    {
+      "id": 65,
+      "nome": "Viagem para Londres",
+      "imagem": "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=300",
+      "quantidade": 8,
+      "categoria": "viagem",
+      "valor": 21199.99
+    },
+    {
+      "id": 66,
+      "nome": "Shampoo para Pets",
+      "imagem": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300",
+      "quantidade": 30,
+      "categoria": "pets",
+      "valor": 19.99
+    },
+    {
+      "id": 71,
+      "nome": "Kit maquiagem",
+      "imagem": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300",
+      "quantidade": 35,
+      "categoria": "beleza",
+      "valor": 59.99
+    },
+    {
+      "id": 72,
+      "nome": "Batom Matte",
+      "imagem": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300",
+      "quantidade": 60,
+      "categoria": "beleza",
+      "valor": 29.99
+    },
+    {
+      "id": 73,
+      "nome": "Perfume Importado",
+      "imagem": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=300",
+      "quantidade": 20,
+      "categoria": "beleza",
+      "valor": 199.99
+    },
+    {
+      "id": 74,
+      "nome": "Shampoo Profissional",
+      "imagem": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aGFpciUyMHNoYW1wb298ZW58MHx8MHx8fDA%3D?w=300",
+      "quantidade": 40,
+      "categoria": "beleza",
+      "valor": 79.99
+    },
+    {
+      "id": 75,
+      "nome": "Kit Pincéis Maquiagem",
+      "imagem": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300",
+      "quantidade": 28,
+      "categoria": "beleza",
+      "valor": 149.99
+    },
+    {
+      "id": 76,
+      "nome": "Creme Hidratante",
+      "imagem": "https://images.unsplash.com/photo-1629732047847-50219e9c5aef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3JlbWUlMjBoaWRyYXRhbnRlfGVufDB8fDB8fHww?w=300",
+      "quantidade": 45,
+      "categoria": "beleza",
+      "valor": 39.99
+    },
+    {
+      "id": 77,
+      "nome": "Máscara Facial",
+      "imagem": "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=300",
+      "quantidade": 50,
+      "categoria": "beleza",
+      "valor": 24.99
+    },
+    {
+      "id": 78,
+      "nome": "Esmalte Gel",
+      "imagem": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=300",
+      "quantidade": 55,
+      "categoria": "beleza",
+      "valor": 19.99
+    },
+    {
+      "id": 79,
+      "nome": "Sérum Anti-idade",
+      "imagem": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300",
+      "quantidade": 25,
+      "categoria": "beleza",
+      "valor": 89.99
+    },
+    {
+      "id": 80,
+      "nome": "Protetor Solar FPS 50",
+      "imagem": "https://images.unsplash.com/photo-1623676714504-edd78728155e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvdGV0b3IlMjBzb2xhcnxlbnwwfHwwfHx8MA%3D%3D?w=300",
+      "quantidade": 38,
+      "categoria": "beleza",
+      "valor": 49.99
+    },
+    {
+      "id": 81,
+      "nome": "Hambúrguer Artesanal",
+      "imagem": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300",
+      "quantidade": 25,
+      "categoria": "alimentos",
+      "valor": 44.99
+    },
+    {
+      "id": 82,
+      "nome": "Pizza Margherita",
+      "imagem": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300",
+      "quantidade": 30,
+      "categoria": "alimentos",
+      "valor": 65.99
+    },
+    {
+      "id": 84,
+      "nome": "Bolo de chocolate",
+      "imagem": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300",
+      "quantidade": 60,
+      "categoria": "alimentos",
+      "valor": 74.99
+    },
+    {
+      "id": 85,
+      "nome": "Sushi Combo",
+      "imagem": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=300",
+      "quantidade": 20,
+      "categoria": "alimentos",
+      "valor": 145.99
+    },
+    {
+      "id": 86,
+      "nome": "Café Especial 250g",
+      "imagem": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=300",
+      "quantidade": 35,
+      "categoria": "alimentos",
+      "valor": 69.99
+    },
+    {
+      "id": 87,
+      "nome": "Trufas de chocolate",
+      "imagem": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=300",
+      "quantidade": 45,
+      "categoria": "alimentos",
+      "valor": 19.99
+    },
+    {
+      "id": 88,
+      "nome": "Mel Orgânico",
+      "imagem": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=300",
+      "quantidade": 28,
+      "categoria": "alimentos",
+      "valor": 39.99
+    },
+    {
+      "id": 89,
+      "nome": "Queijo Artesanal",
+      "imagem": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=300",
+      "quantidade": 22,
+      "categoria": "alimentos",
+      "valor": 54.99
+    },
+    {
+      "id": 90,
+      "nome": "Vinho Tinto",
+      "imagem": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=300",
+      "quantidade": 15,
+      "categoria": "alimentos",
+      "valor": 89.99
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Eletrônicos",
+      "descricao": "Produtos eletrônicos e tecnologia"
+    },
+    {
+      "id": 2,
+      "nome": "Roupas",
+      "descricao": "Roupas e acessórios"
+    },
+    {
+      "id": 3,
+      "nome": "Casa",
+      "descricao": "Móveis e decoração para casa"
+    },
+    {
+      "id": 4,
+      "nome": "Saúde",
+      "descricao": "Produtos para saúde e bem-estar"
+    },
+    {
+      "id": 5,
+      "nome": "Esportes",
+      "descricao": "Artigos esportivos e fitness"
+    },
+    {
+      "id": 6,
+      "nome": "Livros",
+      "descricao": "Livros e material de leitura"
+    },
+    {
+      "id": 7,
+      "nome": "Pets",
+      "descricao": "Produtos para animais de estimação"
+    },
+    {
+      "id": 8,
+      "nome": "Beleza",
+      "descricao": "Cosméticos e produtos de beleza"
+    },
+    {
+      "id": 9,
+      "nome": "Alimentos",
+      "descricao": "Alimentos e bebidas"
+    },
+    {
+      "id": 10,
+      "nome": "Viagens",
+      "descricao": "Viagens"
+    }
+  ],
+  "carrinho": [],
+  "pedidos": [
+    {
+      "id": 1753563098144,
+      "data": "2025-07-26T20:51:38.144Z",
+      "itens": [
+        {
+          "id": 1753563088800,
+          "produtoId": 2,
+          "quantidade": 1,
+          "produto": {
+            "id": 2,
+            "nome": "Samsung Galaxy S23",
+            "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300",
+            "quantidade": 12,
+            "categoria": "eletrônicos",
+            "valor": 4999.99
+          }
+        }
+      ],
+      "total": 4999.99
+    },
+    {
+      "id": 1753563118346,
+      "data": "2025-07-26T20:51:58.346Z",
+      "itens": [
+        {
+          "id": 1753563109828,
+          "produtoId": 2,
+          "quantidade": 1,
+          "produto": {
+            "id": 2,
+            "nome": "Samsung Galaxy S23",
+            "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300",
+            "quantidade": 11,
+            "categoria": "eletrônicos",
+            "valor": 4999.99
+          }
+        },
+        {
+          "id": 1753563111573,
+          "produtoId": 3,
+          "quantidade": 1,
+          "produto": {
+            "id": 3,
+            "nome": "MacBook Pro M2",
+            "imagem": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300",
+            "quantidade": 8,
+            "categoria": "eletrônicos",
+            "valor": 12999.99
+          }
+        }
+      ],
+      "total": 17999.98
+    },
+    {
+      "id": 1753566208618,
+      "data": "2025-07-26T21:43:28.618Z",
+      "itens": [
+        {
+          "id": 1753566203779,
+          "produtoId": 1,
+          "quantidade": 1,
+          "produto": {
+            "id": 1,
+            "nome": "iPhone 14 Pro",
+            "imagem": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300",
+            "quantidade": 15,
+            "categoria": "eletrônicos",
+            "valor": 6999.99
+          }
+        }
+      ],
+      "total": 6999.99
+    }
+  ]
+}

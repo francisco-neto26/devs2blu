@@ -1,0 +1,196 @@
+:root {
+  --bs-primary-rgb: 13, 110, 253;
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.navbar-brand {
+  font-size: 1.8rem !important;
+  font-weight: bold;
+}
+
+/* Product Cards */
+.product-card {
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-image-container { /* Novo container para a imagem */
+  height: 200px;
+  width: 100%;
+  overflow: hidden; /* Garante que a imagem não transborde */
+  background: linear-gradient(45deg, var(--bs-light), var(--bs-gray-200));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image { /* Estilo para a tag <img> */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+  display: block;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--success-color);
+}
+
+.product-stock {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.product-stock.low-stock {
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+.product-stock.out-of-stock {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+/* Carrinho Styles */
+.offcanvas {
+  width: 400px !important;
+}
+
+.carrinho-item {
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 0;
+}
+
+.carrinho-item:last-child {
+  border-bottom: none;
+}
+
+.carrinho-item-image { /* Estilo para a imagem do carrinho */
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  background: linear-gradient(45deg, var(--bs-light), var(--bs-gray-200));
+  border-radius: 8px;
+  display: block; /* Garante que a imagem se comporte como bloco */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 0.875rem;
+}
+
+.quantity-input {
+  width: 50px;
+}
+
+/* Badges */
+.badge-categoria {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+}
+
+/* Loading Animation */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .offcanvas {
+    width: 100% !important;
+  }
+  .product-image-container { /* Ajuste para o container da imagem */
+    height: 150px;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Button Styles */
+.btn-add-cart {
+  transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+  transform: translateY(-2px);
+}
+
+.btn-add-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Category Colors */
+.categoria-eletrônicos {
+  background-color: var(--bs-primary) !important;
+}
+.categoria-roupas {
+  background-color: var(--bs-danger) !important;
+}
+.categoria-casa {
+  background-color: var(--bs-success) !important;
+}
+.categoria-esportes {
+  background-color: var(--bs-warning) !important;
+}
+.categoria-beleza {
+  background-color: #d63384;
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1055;
+}
+
+.toast {
+  min-width: 300px;
+}
