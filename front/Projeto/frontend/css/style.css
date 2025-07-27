@@ -183,6 +183,10 @@ body {
   background-color: #d63384;
 }
 
+.categoria {
+  background-color: var(--categoria-cor) !important;
+}
+
 /* Toast Notifications */
 .toast-container {
   position: fixed;

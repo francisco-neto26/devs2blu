@@ -1,4 +1,3 @@
-// Classe para gerenciar o carrinho
 class Carrinho {
   constructor() {
     this.items = []
@@ -12,7 +11,6 @@ class Carrinho {
   }
 
   setupEventListeners() {
-    // Botão finalizar compra
     document.getElementById("btn-finalizar-compra").addEventListener("click", () => {
       this.finalizarCompra()
     })
@@ -71,17 +69,14 @@ class Carrinho {
       await window.API.finalizarCompra()
       await this.carregarCarrinho()
 
-      // Fechar offcanvas
       const offcanvas = window.bootstrap.Offcanvas.getInstance(document.getElementById("offcanvasCarrinho"))
       if (offcanvas) {
         offcanvas.hide()
       }
 
-      // Mostrar modal de sucesso
       const modal = new window.bootstrap.Modal(document.getElementById("modalSucesso"))
       modal.show()
 
-      // Recarregar produtos para atualizar estoque
       if (window.loja) {
         window.loja.carregarProdutos()
       }
@@ -129,7 +124,7 @@ class Carrinho {
                     </div>
                     <div class="col-9">
                         <h6 class="fw-bold mb-1 text-dark">${item.produto.nome}</h6>
-                        <p class="text-muted mb-2 small">R$ ${item.produto.valor.toFixed(2)} cada</p>
+                        <p class="text-muted mb-2 small">R$ ${item.produto.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} cada</p>
                         
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center gap-2">
@@ -147,7 +142,7 @@ class Carrinho {
                             </div>
                             
                             <div class="d-flex align-items-center gap-2">
-                                <span class="fw-bold text-success">R$ ${(item.produto.valor * item.quantidade).toFixed(2)}</span>
+                                <span class="fw-bold text-success">R$ ${(item.produto.valor * item.quantidade).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 <button class="btn btn-outline-danger btn-sm" onclick="carrinho.removerProduto(${item.produtoId})" title="Remover item">
                                     🗑️
                                 </button>
@@ -163,11 +158,10 @@ class Carrinho {
 
   calcularTotal() {
     this.total = this.items.reduce((total, item) => total + item.produto.valor * item.quantidade, 0)
-    document.getElementById("carrinho-total").textContent = `R$ ${this.total.toFixed(2)}`
+    document.getElementById("carrinho-total").textContent = `R$ ${this.total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
   }
 
   mostrarToast(mensagem, tipo = "info") {
-    // Criar container de toast se não existir
     let toastContainer = document.querySelector(".toast-container")
     if (!toastContainer) {
       toastContainer = document.createElement("div")
@@ -188,7 +182,7 @@ class Carrinho {
     const toastHTML = `
             <div id="${toastId}" class="toast border-0 shadow-lg" role="alert">
                 <div class="toast-header ${bgClass} text-white border-0">
-                    <strong class="me-auto fw-bold">🛍️ TechStore</strong>
+                    <strong class="me-auto fw-bold">🛍️ BuyOn</strong>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
                 </div>
                 <div class="toast-body bg-white fw-semibold">
@@ -200,15 +194,13 @@ class Carrinho {
     toastContainer.insertAdjacentHTML("beforeend", toastHTML)
 
     const toastElement = document.getElementById(toastId)
-    const toast = new window.bootstrap.Toast(toastElement, { delay: 4000 })
+    const toast = new window.bootstrap.Toast(toastElement, { delay: 1000 })
     toast.show()
 
-    // Remover toast após ser ocultado
     toastElement.addEventListener("hidden.bs.toast", () => {
       toastElement.remove()
     })
   }
 }
 
-// Adicione esta linha no final do arquivo js/carrinho.js para expor a classe globalmente
 window.Carrinho = Carrinho

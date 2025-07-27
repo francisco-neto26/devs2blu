@@ -99,6 +99,10 @@ class API {
     return this.get("/categorias")
   }
 
+  static async getCategoria(id) {
+    return this.get(`/categorias/${id}`)
+  }
+
   // Métodos específicos para carrinho
   static async getCarrinho() {
     return this.get("/carrinho")

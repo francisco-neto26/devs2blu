@@ -56,7 +56,7 @@ class LojaVirtual {
     menu.innerHTML = this.categorias
       .map(
         (categoria) => `
-            <li><a class="dropdown-item py-2 px-3 fw-semibold" href="#" onclick="loja.filtrarPorCategoria('${categoria.nome}')">${categoria.nome}</a></li>
+            <li><a class="dropdown-item py-2 px-3 fw-semibold" href="#" onclick="loja.filtrarPorCategoria('${categoria.id}')">${categoria.nome}</a></li>
         `,
       )
       .join("")
@@ -83,9 +83,10 @@ class LojaVirtual {
     this.mostrarLoading(true)
     try {
       const API = window.API
+      const catNome = await API.getCategoria(categoria)
       this.produtos = await API.getProdutosPorCategoria(categoria)
       this.renderizarProdutos(this.produtos)
-      this.atualizarBreadcrumb(categoria)
+      this.atualizarBreadcrumb(catNome.nome)
       this.filtroAtual = categoria
       this.termoPesquisa = ""
 
@@ -117,6 +118,8 @@ class LojaVirtual {
   }
 
   renderizarProdutos(produtos) {
+
+
     const container = document.getElementById("produtos-container")
     const noProducts = document.getElementById("no-products")
 
@@ -127,7 +130,11 @@ class LojaVirtual {
     }
 
     noProducts.classList.add("d-none")
-    container.innerHTML = produtos.map((produto) => this.criarCardProduto(produto)).join("")
+    container.innerHTML = this.embaralharProdutos(produtos).map((produto) => this.criarCardProduto(produto)).join("")
+  }
+
+  embaralharProdutos(produtos) {
+    return [...produtos].sort(() => Math.random() - 0.5);
   }
 
   criarCardProduto(produto) {
@@ -151,9 +158,7 @@ class LojaVirtual {
       classEstoque = "text-muted"
       badgeEstoque = "bg-success"
     }
-
-    const categoriaNormalizada = produto.categoria.toLowerCase().replace(/\s+/g, "-")
-
+    const categoria = this.categorias.find(cat => cat.id === produto.categoria)
     return `
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                 <div class="card product-card h-100 shadow-sm border-0 fade-in">
@@ -165,12 +170,12 @@ class LojaVirtual {
                     </div>
                     <div class="card-body d-flex flex-column p-3">
                         <div class="mb-2">
-                            <span class="badge categoria-${categoriaNormalizada} text-white small fw-semibold px-2 py-1">
-                                ${produto.categoria}
+                            <span class="badge categoria text-white small fw-semibold px-2 py-1" style="--categoria-cor: ${categoria.cor};">
+                              ${categoria.nome}
                             </span>
                         </div>
                         <h5 class="card-title fw-bold mb-2 text-dark">${produto.nome}</h5>
-                        <p class="fs-4 fw-bold text-success mb-2">R$ ${produto.valor.toFixed(2)}</p>
+                        <p class="fs-4 fw-bold text-success mb-2">R$ ${produto.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                         <p class="small ${classEstoque} mb-3">${statusEstoque}</p>
                         <div class="mt-auto">
                             <button 
@@ -224,7 +229,6 @@ class LojaVirtual {
   }
 }
 
-// Inicializar aplicação quando DOM estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
   window.loja = new LojaVirtual()
   window.carrinho = new window.Carrinho()

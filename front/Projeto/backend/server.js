@@ -41,6 +41,16 @@ app.get('/api/categorias', (req, res) => {
   res.json(data.categorias);
 });
 
+app.get('/api/categorias/:id', (req, res) => {
+  const data = loadData();
+  const categoria = data.categorias.find(c => c.id === parseInt(req.params.id));
+  if (categoria) {
+    res.json(categoria);
+  } else {
+    res.status(404).json({ error: 'Categoria não encontrado' });
+  }
+});
+
 app.get('/api/carrinho', (req, res) => {
   const data = loadData();
   res.json(data.carrinho);
@@ -52,10 +62,10 @@ app.get('/api/pedidos', (req, res) => {
 });
 
 app.get('/api/produtos/categoria/:categoria', (req, res) => {
-  const categoria = req.params.categoria.toLowerCase();
+  const categoria = parseInt(req.params.categoria);
   const data = loadData();
-  const produtos = data.produtos.filter(produto => 
-    produto.categoria.toLowerCase() === categoria
+  const produtos = data.produtos.filter(produto =>     
+    produto.categoria === categoria    
   );
   res.json(produtos);
 });
@@ -63,10 +73,14 @@ app.get('/api/produtos/categoria/:categoria', (req, res) => {
 app.get('/api/produtos/buscar/:termo', (req, res) => {
   const termo = req.params.termo.toLowerCase();
   const data = loadData();
+  const categoriasIds = data.categorias
+    .filter(categoria => removerAcentos(categoria.nome).includes(termo))
+    .map(categoria => categoria.id);
   const produtos = data.produtos.filter(produto => 
-    produto.nome.toLowerCase().includes(termo) || 
-    produto.categoria.toLowerCase().includes(termo)
+    removerAcentos(produto.nome).includes(termo) || 
+    categoriasIds.includes(produto.categoria)
   );
+
   res.json(produtos);
 });
 
@@ -167,6 +181,13 @@ app.put('/api/carrinho/atualizar/:produtoId', (req, res) => {
   saveData(data);
   res.json({ success: true, message: 'Carrinho atualizado' });
 });
+
+function removerAcentos(texto) {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
