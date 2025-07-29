@@ -56,4 +56,3 @@ CORS - Middleware para permitir requisições cross-origin
 Nodemon - Auto-restart do servidor durante desenvolvimento
 Tecnologias web puras (HTML, CSS, JavaScript) 
 
-![Screenshot da loja](screenshots/home.png)
