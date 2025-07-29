@@ -12,7 +12,7 @@
       "id": 2,
       "nome": "Samsung Galaxy S23",
       "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300",
-      "quantidade": 10,
+      "quantidade": 0,
       "categoria": 1,
       "valor": 4999.99
     },
@@ -60,7 +60,7 @@
       "id": 8,
       "nome": "Apple Watch Series 8",
       "imagem": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=300",
-      "quantidade": 14,
+      "quantidade": 12,
       "categoria": 1,
       "valor": 2499.99
     },
@@ -396,7 +396,7 @@
       "id": 65,
       "nome": "Viagem para Londres",
       "imagem": "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=300",
-      "quantidade": 8,
+      "quantidade": 7,
       "categoria": 10,
       "valor": 21199.99
     },
@@ -737,6 +737,66 @@
         }
       ],
       "total": 8999.99
+    },
+    {
+      "id": 1753824612948,
+      "data": "2025-07-29T21:30:12.948Z",
+      "itens": [
+        {
+          "id": 1753824604784,
+          "produtoId": 8,
+          "quantidade": 2,
+          "produto": {
+            "id": 8,
+            "nome": "Apple Watch Series 8",
+            "imagem": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=300",
+            "quantidade": 14,
+            "categoria": 1,
+            "valor": 2499.99
+          }
+        }
+      ],
+      "total": 4999.98
+    },
+    {
+      "id": 1753826731533,
+      "data": "2025-07-29T22:05:31.533Z",
+      "itens": [
+        {
+          "id": 1753826726492,
+          "produtoId": 65,
+          "quantidade": 1,
+          "produto": {
+            "id": 65,
+            "nome": "Viagem para Londres",
+            "imagem": "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=300",
+            "quantidade": 8,
+            "categoria": 10,
+            "valor": 21199.99
+          }
+        }
+      ],
+      "total": 21199.99
+    },
+    {
+      "id": 1753827210323,
+      "data": "2025-07-29T22:13:30.323Z",
+      "itens": [
+        {
+          "id": 1753827190671,
+          "produtoId": 2,
+          "quantidade": 10,
+          "produto": {
+            "id": 2,
+            "nome": "Samsung Galaxy S23",
+            "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300",
+            "quantidade": 10,
+            "categoria": 1,
+            "valor": 4999.99
+          }
+        }
+      ],
+      "total": 49999.899999999994
     }
   ]
 }

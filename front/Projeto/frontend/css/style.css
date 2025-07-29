@@ -166,23 +166,6 @@ body {
   transform: none;
 }
 
-/* Category Colors */
-.categoria-eletrônicos {
-  background-color: var(--bs-primary) !important;
-}
-.categoria-roupas {
-  background-color: var(--bs-danger) !important;
-}
-.categoria-casa {
-  background-color: var(--bs-success) !important;
-}
-.categoria-esportes {
-  background-color: var(--bs-warning) !important;
-}
-.categoria-beleza {
-  background-color: #d63384;
-}
-
 .categoria {
   background-color: var(--categoria-cor) !important;
 }

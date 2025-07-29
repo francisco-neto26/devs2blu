@@ -1,9 +1,11 @@
 class LojaVirtual {
   constructor() {
     this.produtos = []
+    this.produtosOriginais = [] // Para manter a ordem original
     this.categorias = []
     this.filtroAtual = null
     this.termoPesquisa = ""
+    this.ordenacaoAtual = "default" // Padrão de ordenação
     this.init()
   }
 
@@ -19,7 +21,6 @@ class LojaVirtual {
   }
 
   setupEventListeners() {
-
     const formPesquisa = document.getElementById("form-pesquisa")
     const inputPesquisa = document.getElementById("input-pesquisa")
 
@@ -33,12 +34,74 @@ class LojaVirtual {
       }
     })
 
-
     inputPesquisa.addEventListener("input", (e) => {
       if (e.target.value.trim() === "") {
         this.carregarProdutos()
       }
     })
+
+    // Event listeners para ordenação
+    this.setupSortEventListeners()
+  }
+
+  setupSortEventListeners() {
+    const sortLinks = document.querySelectorAll('[data-sort]')
+    
+    sortLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        const sortType = e.target.getAttribute('data-sort')
+        this.ordenarProdutos(sortType)
+        this.atualizarDropdownOrdenacao(sortType)
+      })
+    })
+  }
+
+  atualizarDropdownOrdenacao(sortType) {
+    // Remove o checkmark de todos os itens
+    const allItems = document.querySelectorAll('.dropdown-menu .dropdown-item')
+    allItems.forEach(item => {
+      item.innerHTML = item.innerHTML.replace('<span class="text-primary">✓</span> ', '')
+      item.classList.remove('fw-semibold')
+    })
+
+    // Adiciona checkmark ao item selecionado
+    const selectedItem = document.querySelector(`[data-sort="${sortType}"]`)
+    if (selectedItem) {
+      selectedItem.innerHTML = '<span class="text-primary">✓</span> ' + selectedItem.textContent.trim()
+      selectedItem.classList.add('fw-semibold')
+    }
+
+    // Atualiza o texto do botão
+    const textos = {
+      'default': 'Mais relevantes',
+      'price-asc': 'Menor preço',
+      'price-desc': 'Maior preço'
+    }
+    
+    const ordenacaoTexto = document.getElementById('ordenacao-texto')
+    ordenacaoTexto.textContent = `Ordenar por: ${textos[sortType]}`
+  }
+
+  ordenarProdutos(tipo) {
+    this.ordenacaoAtual = tipo
+    let produtosOrdenados = [...this.produtos]
+
+    switch (tipo) {
+      case 'price-asc':
+        produtosOrdenados.sort((a, b) => a.valor - b.valor)
+        break
+      case 'price-desc':
+        produtosOrdenados.sort((a, b) => b.valor - a.valor)
+        break
+      case 'default':
+      default:
+        // Mantém a ordem original (embaralhada)
+        produtosOrdenados = this.embaralharProdutos(this.produtos)
+        break
+    }
+
+    this.renderizarProdutos(produtosOrdenados)
   }
 
   async carregarCategorias() {
@@ -67,7 +130,11 @@ class LojaVirtual {
     try {
       const API = window.API
       this.produtos = await API.getProdutos()
-      this.renderizarProdutos(this.produtos)
+      this.produtosOriginais = [...this.produtos] // Salva a ordem original
+      
+      // Aplica a ordenação atual
+      this.ordenarProdutos(this.ordenacaoAtual)
+      
       this.atualizarBreadcrumb("Todos os Produtos")
       this.filtroAtual = null
       this.termoPesquisa = ""
@@ -85,12 +152,15 @@ class LojaVirtual {
       const API = window.API
       const catNome = await API.getCategoria(categoria)
       this.produtos = await API.getProdutosPorCategoria(categoria)
-      this.renderizarProdutos(this.produtos)
+      this.produtosOriginais = [...this.produtos]
+      
+      // Aplica a ordenação atual
+      this.ordenarProdutos(this.ordenacaoAtual)
+      
       this.atualizarBreadcrumb(catNome.nome)
       this.filtroAtual = categoria
       this.termoPesquisa = ""
-
-      // Limpar campo de pesquisa
+      
       document.getElementById("input-pesquisa").value = ""
     } catch (error) {
       console.error("Erro ao filtrar por categoria:", error)
@@ -105,7 +175,11 @@ class LojaVirtual {
     try {
       const API = window.API
       this.produtos = await API.buscarProdutos(termo)
-      this.renderizarProdutos(this.produtos)
+      this.produtosOriginais = [...this.produtos]
+      
+      // Aplica a ordenação atual
+      this.ordenarProdutos(this.ordenacaoAtual)
+      
       this.atualizarBreadcrumb(`Pesquisa: "${termo}"`)
       this.filtroAtual = null
       this.termoPesquisa = termo
@@ -118,8 +192,6 @@ class LojaVirtual {
   }
 
   renderizarProdutos(produtos) {
-
-
     const container = document.getElementById("produtos-container")
     const noProducts = document.getElementById("no-products")
 
@@ -130,7 +202,13 @@ class LojaVirtual {
     }
 
     noProducts.classList.add("d-none")
-    container.innerHTML = this.embaralharProdutos(produtos).map((produto) => this.criarCardProduto(produto)).join("")
+    
+    // Para ordenação padrão, embaralha os produtos
+    const produtosParaRender = this.ordenacaoAtual === 'default' 
+      ? this.embaralharProdutos(produtos) 
+      : produtos
+    
+    container.innerHTML = produtosParaRender.map((produto) => this.criarCardProduto(produto)).join("")
   }
 
   embaralharProdutos(produtos) {
@@ -158,15 +236,13 @@ class LojaVirtual {
       classEstoque = "text-muted"
       badgeEstoque = "bg-success"
     }
+    
     const categoria = this.categorias.find(cat => cat.id === produto.categoria)
     return `
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                 <div class="card product-card h-100 shadow-sm border-0 fade-in">
                     <div class="product-image-container position-relative">
-                        <img src="${produto.imagem}" alt="${produto.nome}" class="product-image">
-                        <span class="badge ${badgeEstoque} position-absolute top-0 end-0 m-2 small">
-                            ${produto.quantidade} Un
-                        </span>
+                        <img src="${produto.imagem}" alt="${produto.nome}" class="product-image">                        
                     </div>
                     <div class="card-body d-flex flex-column p-3">
                         <div class="mb-2">

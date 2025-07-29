@@ -59,11 +59,40 @@
 
     <!-- Main Content -->
     <main class="container my-4">
-        <!-- Breadcrumb -->
+        <!-- Breadcrumb com Ordenação -->
         <nav aria-label="breadcrumb" class="mb-4">
-            <ol class="breadcrumb bg-white rounded shadow-sm px-3 py-2 mb-0" id="breadcrumb">
-                <li class="breadcrumb-item active fw-semibold text-primary">Todos os Produtos</li>
-            </ol>
+            <div class="bg-white rounded shadow-sm px-3 py-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol class="breadcrumb mb-0" id="breadcrumb">
+                        <li class="breadcrumb-item active fw-semibold text-primary">Todos os Produtos</li>
+                    </ol>
+                    
+                    <!-- Dropdown de Ordenação -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle fw-semibold" type="button" id="dropdownOrdenacao" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="ordenacao-texto">Ordenar por: Mais relevantes</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" aria-labelledby="dropdownOrdenacao">
+                            <li>
+                                <a class="dropdown-item fw-semibold" href="#" data-sort="default">
+                                    <span class="text-primary">✓</span> Mais relevantes
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#" data-sort="price-asc">
+                                    Menor preço
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" data-sort="price-desc">
+                                    Maior preço
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
 
         <!-- Loading -->
