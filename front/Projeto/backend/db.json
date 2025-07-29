@@ -316,7 +316,7 @@
       "id": 49,
       "nome": "Prancha de Surf",
       "imagem": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=300",
-      "quantidade": 6,
+      "quantidade": 5,
       "categoria": 5,
       "valor": 899.99
     },
@@ -797,6 +797,26 @@
         }
       ],
       "total": 49999.899999999994
+    },
+    {
+      "id": 1753828786303,
+      "data": "2025-07-29T22:39:46.303Z",
+      "itens": [
+        {
+          "id": 1753828767867,
+          "produtoId": 49,
+          "quantidade": 1,
+          "produto": {
+            "id": 49,
+            "nome": "Prancha de Surf",
+            "imagem": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=300",
+            "quantidade": 6,
+            "categoria": 5,
+            "valor": 899.99
+          }
+        }
+      ],
+      "total": 899.99
     }
   ]
 }
