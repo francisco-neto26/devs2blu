@@ -1,0 +1,59 @@
+BuyOn - Loja Virtual
+
+Uma loja virtual moderna e responsiva desenvolvida com HTML5, CSS, JavaScript ES6+ e Bootstrap. Interface intuitiva com funcionalidades completas de e-commerce.
+
+Funcionalidades
+
+Gestão de Produtos
+> Exibição de produtos em cards
+> Informações detalhadas (preço, estoque, categoria)
+> Categorização com cores
+
+Carrinho de Compras
+> Adicionar/remover produtos
+> Validação de estoque
+> atualização de valores e Finalização de compra
+
+Sistema de Busca e Filtros
+> Pesquisa por nome do produto ou termo
+> Filtros por categoria
+> Ordenação Maior/Menor
+
+Interface Responsiva
+> Layout adaptável para todos os dispositivos
+> Sidebar de carrinho deslizante (offcanvas)
+
+Experiência do usuário
+> Modal de confirmação de compra
+> Animações suaves
+
+Instalação
+
+BACK
+Inicialize o projeto:
+npm init -y
+
+Instale as dependências:
+npm install express cors nodemon
+
+Crie os arquivos:
+package.json (substituir o gerado)
+server.js
+db.json
+
+Executar servidor do back
+npm run dev
+
+FRONT
+Configure a URL da API no arquivo js/api.js
+por exemplo: const API_BASE_URL = 'http://localhost:3000/api'
+
+Tecnologias Utilizadas
+
+Node.js - Runtime JavaScript
+Express - Framework web
+CORS - Middleware para permitir requisições cross-origin
+Nodemon - Auto-restart do servidor durante desenvolvimento
+Tecnologias web puras (HTML, CSS, JavaScript) 
+
+![Screenshot da loja](screenshots/home.png)
