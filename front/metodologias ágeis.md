@@ -1,6 +1,9 @@
 **Projeto ERP SuperMarket Pro - Metodologia Scrum**
+
 **Descrição do Projeto**
+
 **Resumo**
+
 O SuperMarket Pro é um sistema ERP (Enterprise Resource Planning) completo desenvolvido especificamente para supermercados de pequeno, médio e grande porte. O sistema integra todas as operações essenciais do negócio, desde a gestão de estoque e vendas até controle financeiro e recursos humanos.
 
 **Diferencial do Sistema**
@@ -356,4 +359,5 @@ Total de Sprints: 25
 * Dedicar tempo específico para redução de débito técnico em cada sprint.
 
 **Conclusão**
+
 Apesar dos desafios, a metodologia Scrum se mostrou extremamente eficaz para o desenvolvimento do SuperMarket Pro. A capacidade de adaptar-se às mudanças, entregar valor continuamente e manter a qualidade técnica resultou em um produto robusto e alinhado às necessidades reais do mercado. A experiência fortaleceu nossa equipe e estabeleceu processos maduros que serão aplicados em projetos futuros.
