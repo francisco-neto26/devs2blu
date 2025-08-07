@@ -361,3 +361,5 @@ Total de Sprints: 25
 **Conclusão**
 
 Apesar dos desafios, a metodologia Scrum se mostrou extremamente eficaz para o desenvolvimento do SuperMarket Pro. A capacidade de adaptar-se às mudanças, entregar valor continuamente e manter a qualidade técnica resultou em um produto robusto e alinhado às necessidades reais do mercado. A experiência fortaleceu nossa equipe e estabeleceu processos maduros que serão aplicados em projetos futuros.
+
+**Integrantes: Francisco Miguel Ludwig Neto**
