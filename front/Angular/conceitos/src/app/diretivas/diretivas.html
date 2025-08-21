@@ -1,0 +1,13 @@
+
+<h1 [ngStyle]="{'color': corFonte, 'background-color': corFundo}">Utilizando o ngStyle</h1>
+<button (click)="alterarEstilo()" [ngStyle]="estilo">Alterar Estilo</button>
+
+<hr>
+@for (aluno of alunos; track $index) {
+    <p [ngClass]="aluno">{{aluno}}</p>
+}
+
+<hr>
+
+<h1 eventoMouse>Passe o Cursor aqui</h1>
+

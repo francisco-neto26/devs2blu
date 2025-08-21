@@ -1,0 +1,8 @@
+.aprovado{
+    color:green;
+    background-color: burlywood;
+}
+.reprovado{
+    color: red;
+    background-color: yellowgreen;
+}

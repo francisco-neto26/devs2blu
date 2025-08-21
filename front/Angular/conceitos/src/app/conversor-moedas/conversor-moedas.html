@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Conversor de Moedas</h2>
+    <div class="container-interno">
+        <div class="form-group">
+            <label>Converter de:</label>
+        </div>
+        <select class="form-group" [(ngModel)]="opcaoSelecionadaEntrada" name="opcaoSelecionadaEntrada">
+            <option value="">Selecione uma moeda</option>
+            @for (opcao of opcoes; track opcao.valor) {
+            <option [value]="opcao.valor">
+                {{opcao.valor + ' - ' + opcao.texto + ' Valor Atual em R$ ' + opcao.valorUnit.toFixed(3)}}
+            </option>
+            }
+        </select>
+        <div class="form-group">
+            <label>Informe o valor que deseja converter</label>
+            <input type="number" [(ngModel)]="valorEntrada" step="0.001" placeholder="Valor a ser convertido">
+        </div>
+        <div class="form-group">
+            <label>Converter Para:</label>
+        </div>
+        <select class="form-group" [(ngModel)]="opcaoSelecionadaSaida" name="opcaoSelecionadaSaida">
+            <option value="">Selecione uma moeda</option>
+            @for (opcao of opcoes; track opcao.valor) {
+            <option [value]="opcao.valor">
+                {{opcao.valor + ' - ' + opcao.texto}}
+            </option>
+            }
+        </select>
+        <button (click)="converter()">Converter</button>
+    </div>
+    <div class="container-interno">
+        
+        <div class="form-group">
+            <label>Valor convertido</label>
+            <input type="number" [(ngModel)]="valorSaida" step="0.001" placeholder="Valor convertido" readonly>
+        </div>
+    </div>
+
+</div>

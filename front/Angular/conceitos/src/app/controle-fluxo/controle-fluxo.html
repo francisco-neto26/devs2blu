@@ -1,0 +1,29 @@
+<h1>Controle de Fluxo - @IF</h1>
+@if (media >= 7){
+<p>aprovado</p>
+}@else if (media >= 5) {
+<p>em recuperação</p>
+}@else {
+<p>Reprovado</p>
+}
+
+<hr>
+<h1>Controle Fluxo - @SWITCH</h1>
+@switch (linguagem) {
+    @case ('Java') { 
+        <p>Linguagem de programação mantida pela Oracle</p>
+    }
+    @case ('C#') { 
+        <p>Linguagem mantida pela Microsoft</p> 
+    }
+    @default {
+        <p>Linguagem Desconhecida</p>
+    }
+
+}
+
+<hr>
+<h1>Controle de fluxo - @FOR</h1>
+@for (nome of nomes; track $index) {
+    <p>{{$index}} - {{nome}}</p>
+}@empty { <p>Não há dados para exibir</p> }

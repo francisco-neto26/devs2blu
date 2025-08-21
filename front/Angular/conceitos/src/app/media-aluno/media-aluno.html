@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Calculadora de Média do Aluno</h2>
+  
+  <!-- Adicionado campo para nome do aluno -->
+  <div class="form-group">
+    <label>Nome do Aluno:</label>
+    <input type="text" [(ngModel)]="nomeAluno" placeholder="Digite o nome do aluno">
+  </div>
+  
+  <div class="form-group">
+    <label>Nota 1:</label>
+    <input type="number" [(ngModel)]="nota1" min="0" max="10" step="0.1" placeholder="Digite a nota de 0 a 10">
+  </div>
+  
+  <div class="form-group">
+    <label>Nota 2:</label>
+    <input type="number" [(ngModel)]="nota2" min="0" max="10" step="0.1" placeholder="Digite a nota de 0 a 10">
+  </div>
+  
+  <div class="form-group">
+    <label>Nota 3:</label>
+    <input type="number" [(ngModel)]="nota3" min="0" max="10" step="0.1" placeholder="Digite a nota de 0 a 10">
+  </div>
+  
+  <button (click)="calcularMedia()">Adicionar Aluno</button>
+  
+  <!-- Removido resultado individual, agora mostra na tabela -->
+  
+  <div class="contadores">
+    <p>Aprovados: {{ aprovados }}</p>
+    <p>Reprovados: {{ reprovados }}</p>
+  </div>
+
+  <!-- Adicionada tabela para mostrar todos os alunos -->
+  @if (alunos.length > 0) {
+    <div class="tabela-container">
+      <h3>Lista de Alunos</h3>
+      <table class="tabela-alunos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Média</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (aluno of alunos; track aluno.nome) {
+            <tr>
+              <td>{{ aluno.nome }}</td>
+              <td>{{ aluno.nota1 | number:'1.1-1' }}</td>
+              <td>{{ aluno.nota2 | number:'1.1-1' }}</td>
+              <td>{{ aluno.nota3 | number:'1.1-1' }}</td>
+              <td>{{ aluno.media | number:'1.1-1' }}</td>
+              <td [class]="aluno.situacao === 'Aprovado' ? 'aprovado' : 'reprovado'">
+                {{ aluno.situacao }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

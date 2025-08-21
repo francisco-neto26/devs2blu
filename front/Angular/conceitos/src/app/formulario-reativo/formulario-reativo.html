@@ -1,0 +1,30 @@
+<form [formGroup] = 'pessoa'>
+    <input type="text" formControlName="nome" placeholder="Nome">
+    <input type="text" formControlName="idade" placeholder="Idade">
+    <input type="button" value="Enviar" [disabled]="pessoa.invalid">
+</form>
+
+@if (pessoa.get('nome')?.errors?.['required'] && pessoa.get('nome')?.touched) {
+    <p>O nome deve ser informado!</p>
+}
+@if (pessoa.get('nome')?.errors?.['minlength'] && pessoa.get('nome')?.touched) {
+    <p>O nome deve ter 3 caracteres</p>
+}
+@if (pessoa.get('nome')?.valid && pessoa.get('nome')?.touched) {
+    <p>Nome valido</p>
+}
+@if (pessoa.get('idade')?.errors?.['required'] && pessoa.get('idade')?.touched) {
+    <p>A idade deve ser informado!</p>
+}
+@if (pessoa.get('idade')?.errors?.['max'] && pessoa.get('idade')?.touched) {
+    <p>Idade max 120</p>
+}
+@if (pessoa.get('idade')?.errors?.['min'] && pessoa.get('idade')?.touched) {
+    <p>Idade min 0</p>
+}
+@if (pessoa.get('idade')?.valid && pessoa.get('idade')?.touched) {
+    <p>idade valido</p>
+    <p>Nome: {{ pessoa.value | json }}</p>
+}
+
+
